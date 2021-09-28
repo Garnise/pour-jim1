@@ -1,0 +1,48 @@
+int main()
+{
+	std::srand(time(nullptr));
+
+	int masx_try;
+	int mystery_number = std::rand() % 100;
+
+	std::cout << "Etrez le nombre d'essai voulut:" << std::endl;
+	std::cin >> masx_try;
+	std::cout << "Entrez un nombre en 0 et 100 :" << std::endl;
+
+	//note:si vous cherche run nombre entre 0 et 100 ou n'importe quel autre fourchet de 100
+	//le nombre d'essaie nécessaire pour étre sur a 100% de trouver le nombre mystére est de 7 moins rajoutra 
+	//un peu de hasard
+
+	for (int i = 0; i < masx_try; i++)
+	{
+		int number = 0;
+		std::cin >> number;
+		if (number >= 0 && number <= 100)
+		{
+			if (number == mystery_number)
+			{
+				std::cout << "Vous avez gagne" << std::endl;
+				break;
+			}
+			else if (number > mystery_number)
+			{
+				std::cout << "Moins" << std::endl;
+			}
+			else
+			{
+				std::cout << "Plus" << std::endl;
+			}
+
+			if (i == masx_try - 1)
+			{
+				std::cout << "Perdu !" << std::endl;
+			}
+		}
+		else
+		{
+			std::cout << "erreur" << std::endl;
+			break;
+		}
+	}
+	return 0;
+}
